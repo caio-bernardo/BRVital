@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Status
 
-Pre-implementation. The repo currently holds only `README.md` and `RFC.md` (in Portuguese). There is no source code, build, lint, or test tooling yet — do not invent commands. `RFC.md` (v0.2.0, MDP scope) is the source of truth for what to build; read the relevant section before implementing anything. Write code comments, docs and user-facing text in Brazilian Portuguese unless told otherwise.
+Alfa local sintética implementada em workspaces npm: `apps/core-api`, `apps/mobile`, `apps/triage-panel` e `packages/contracts`. Consulte `README.md` para comandos reais de setup, build, lint e testes; `TASKS.md` registra pendências. API e gateway bloqueiam produção; HAPI não representa uma fila hospitalar real. `RFC.md` (v0.2.0, escopo MDP) continua sendo a fonte de verdade: leia a seção relevante antes de implementar. Escreva comentários, documentação e textos da interface em português brasileiro, salvo orientação contrária.
 
 BRVital: app for symptom pre-triage (rule-based, per clinical protocol), hospital recommendation, and remote queue ticket (senha) issuance written into a real hospital HIS via HL7 FHIR.
 
@@ -30,7 +30,7 @@ BRVital: app for symptom pre-triage (rule-based, per clinical protocol), hospita
 
 - TDD in domain modules (triage, ticket, consent), ≥80% coverage there; integration tests against a HAPI FHIR server for anything touching the gateway.
 - Changing clinical rules requires a version bump, updated test cases, and clinical-owner approval. Rule test cases must cover 100% of red flags.
-- Record an ADR for architecture decisions; keep OpenAPI updated; WCAG 2.1 AA on UI (urgency shown in color *and* text).
+- Record an ADR for architecture decisions; keep OpenAPI updated; WCAG 2.1 AA on UI (urgency shown in color _and_ text).
 
 ## Repo tooling
 

@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: postgis/postgis:16-3.5
+    environment:
+      POSTGRES_DB: brvital
+      POSTGRES_USER: brvital_migrator
+      POSTGRES_PASSWORD: ${DATABASE_MIGRATOR_PASSWORD:?Defina DATABASE_MIGRATOR_PASSWORD local}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U brvital_migrator -d brvital"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+  hapi:
+    image: hapiproject/hapi:v7.6.0
+    environment:
+
+      hapi.fhir.fhir_version: R4
+      hapi.fhir.server_address: http://localhost:8080/fhir
+      hapi.fhir.default_encoding: JSON
+      hapi.fhir.allow_multiple_delete: "false"
+    ports:
+      - "127.0.0.1:8080:8080"
+
+volumes:
+  postgres_data:

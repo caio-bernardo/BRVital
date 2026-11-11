@@ -1,0 +1,19 @@
+*:focus-visible {
+  outline: 3px solid #45b08c;
+  outline-offset: 2px;
+}
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+body {
+  background: #e6ece8;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,11 @@
+node_modules/
+.npm-cache/
+dist/
+coverage/
+.expo/
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+.terraform/
+*.tfstate*
