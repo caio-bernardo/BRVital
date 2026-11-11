@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "BR Vital — demonstração",
+    "slug": "brvital",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "plugins": ["expo-secure-store", "expo-font"],
+    "web": { "bundler": "metro", "output": "single", "name": "BR Vital" },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "br.com.brvital.demo"
+    },
+    "android": { "package": "br.com.brvital.demo" }
+  }
+}

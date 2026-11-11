@@ -1,0 +1,182 @@
+@font-face {
+  font-family: "Bodoni Moda";
+  src: url("@expo-google-fonts/bodoni-moda/700Bold/BodoniModa_700Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: Figtree;
+  src: url("@expo-google-fonts/figtree/400Regular/Figtree_400Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: Figtree;
+  src: url("@expo-google-fonts/figtree/600SemiBold/Figtree_600SemiBold.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+:root {
+  font-family: Figtree, system-ui, sans-serif;
+  color: #2a2524;
+  background: #e6ece8;
+  font-size: 16px;
+  line-height: 1.45;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  max-width: 420px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #f7f9f7;
+  padding: 20px 16px 32px;
+}
+header {
+  border-bottom: 2px solid #5a1e16;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+}
+h1,
+h2,
+h3 {
+  font-family: "Bodoni Moda", Georgia, serif;
+  color: #5a1e16;
+  line-height: 1.1;
+}
+h1 {
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  margin: 8px 0 20px;
+}
+h2 {
+  font-size: 20px;
+  margin: 0 0 16px;
+}
+h3 {
+  font-size: 20px;
+}
+p {
+  margin: 0 0 16px;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button,
+input,
+select {
+  border: 2px solid #5a1e16;
+  background: #fff;
+  border-radius: 6px;
+  min-height: 44px;
+  padding: 12px 14px;
+  width: 100%;
+  color: #5a1e16;
+}
+button {
+  font-weight: 600;
+  cursor: pointer;
+  margin: 4px 0 12px;
+  border-radius: 999px;
+}
+button.action {
+  background: #45b08c;
+  color: #2a2524;
+  font-size: 18px;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+button:hover:not(:disabled) {
+  background: #e6ece8;
+}
+button.action:hover:not(:disabled) {
+  background: #45b08c;
+}
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #45b08c;
+  outline-offset: 2px;
+}
+label {
+  display: block;
+  color: #5a1e16;
+  font-weight: 600;
+  margin: 16px 0 8px;
+}
+article,
+.report {
+  border: 2px solid #5a1e16;
+  padding: 12px;
+  background: #fff;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+.notice {
+  padding: 10px 14px;
+  border: 2px solid #e8b923;
+  background: #fff8dc;
+  margin-bottom: 20px;
+}
+.muted,
+small {
+  color: #5c6660;
+}
+small {
+  font-size: 13px;
+}
+.error {
+  border: 2px solid #b3263a;
+  padding: 12px;
+  color: #b3263a;
+  margin-bottom: 16px;
+}
+ul {
+  padding-left: 20px;
+}
+.code {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: 40px;
+  letter-spacing: 0.12em;
+  color: #5a1e16;
+  overflow-wrap: anywhere;
+}
+.urgency {
+  border-left: 4px solid #e8b923;
+  padding-left: 14px;
+  font-weight: 600;
+}
+.urgency[data-level="1"],
+.urgency[data-level="2"] {
+  border-color: #b3263a;
+}
+.urgency[data-level="4"],
+.urgency[data-level="5"] {
+  border-color: #45b08c;
+}
+details {
+  margin: 16px 0;
+  overflow-wrap: anywhere;
+}
+summary {
+  cursor: pointer;
+  min-height: 40px;
+}
+footer {
+  margin-top: 28px;
+  font-size: 13px;
+  color: #5c6660;
+}

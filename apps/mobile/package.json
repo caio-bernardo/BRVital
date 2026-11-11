@@ -1,0 +1,31 @@
+{
+  "name": "@brvital/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "build": "expo export --platform web",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --config vitest.config.ts"
+  },
+  "dependencies": {
+    "@brvital/contracts": "*",
+    "@expo-google-fonts/bodoni-moda": "^0.4.0",
+    "@expo-google-fonts/figtree": "^0.4.0",
+    "expo": "~54.0.0",
+    "expo-font": "~14.0.9",
+    "expo-crypto": "~15.0.7",
+    "expo-secure-store": "~15.0.7",
+    "expo-status-bar": "~3.0.8",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-web": "~0.21.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/dom": "^10.4.1",
+    "jsdom": "^26.1.0"
+  }
+}

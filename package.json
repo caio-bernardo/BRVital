@@ -1,0 +1,72 @@
+{
+  "name": "brvital",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "build": "npm run build -w @brvital/contracts && npm run build -w @brvital/core-api && npm run build -w @brvital/triage-panel && npm run build -w @brvital/mobile",
+    "typecheck": "npm run build -w @brvital/contracts && npm run typecheck --workspaces --if-present",
+    "test": "npm run build -w @brvital/contracts && vitest run",
+    "test:coverage": "npm run build -w @brvital/contracts && vitest run --coverage",
+    "test:integration": "npm run build -w @brvital/contracts && RUN_INTEGRATION=1 vitest run --config vitest.integration.config.ts",
+    "lint": "eslint .",
+    "dev:api": "npm run dev -w @brvital/core-api",
+    "dev:worker": "npm run worker -w @brvital/core-api",
+    "dev:mobile": "npm run start -w @brvital/mobile",
+    "dev:panel": "npm run dev -w @brvital/triage-panel",
+    "dev:web": "npm run start -w @brvital/mobile -- --web",
+    "local:setup": "node scripts/setup-local.mjs",
+    "local:wait": "node scripts/wait-local.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "db:migrate": "tsx database/migrate.ts",
+    "db:seed": "tsx database/seed.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@types/node": "^22.19.0",
+    "@types/pg": "^8.15.0",
+    "@types/react": "~19.1.10",
+    "@types/react-dom": "19.1.9",
+    "@vitest/coverage-v8": "^4.1.12",
+    "eslint": "^9.39.0",
+    "globals": "^16.5.0",
+    "tsx": "^4.20.0",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "^8.46.0",
+    "vitest": "^4.1.12"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "pg": "^8.16.3",
+    "uuid": "^13.0.0",
+    "zod": "^4.1.0"
+  },
+  "type": "module",
+  "overrides": {
+    "glob@>=9": "14.0.4",
+    "minimatch@>=7": "11.0.8",
+    "@expo/metro-config": {
+      "postcss": "8.5.32"
+    },
+    "metro": "0.83.8",
+    "metro-babel-transformer": "0.83.8",
+    "metro-cache": "0.83.8",
+    "metro-cache-key": "0.83.8",
+    "metro-config": "0.83.8",
+    "metro-core": "0.83.8",
+    "metro-file-map": "0.83.8",
+    "metro-minify-terser": "0.83.8",
+    "metro-resolver": "0.83.8",
+    "metro-runtime": "0.83.8",
+    "metro-source-map": "0.83.8",
+    "metro-symbolicate": "0.83.8",
+    "metro-transform-plugins": "0.83.8",
+    "metro-transform-worker": "0.83.8"
+  }
+}

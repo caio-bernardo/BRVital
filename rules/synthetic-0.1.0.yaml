@@ -1,0 +1,95 @@
+version: synthetic-0.1.0
+synthetic: true
+disclaimer: >-
+  Demonstração fictícia, sem validade clínica e sem aprovação clínica.
+  Não usar para decidir atendimento. Em emergência real, ligue 192.
+baseUrgency: 5
+specialties: [clinica_demonstrativa]
+questions:
+  - id: sex
+    text: 'Demonstração: informe o sexo.'
+    critical: false
+    options:
+      - { value: feminino, label: Feminino }
+      - { value: masculino, label: Masculino }
+      - { value: nao_informado, label: Prefiro não informar }
+  - id: comorbidities
+    text: 'Demonstração: selecione marcadores fictícios (não são doenças).'
+    critical: false
+    multiple: true
+    options:
+      - { value: nenhuma, label: Nenhum marcador }
+      - { value: marcador_x, label: Marcador fictício X }
+      - { value: marcador_y, label: Marcador fictício Y }
+      - { value: desconhecido, label: Não sei }
+  - id: complaint
+    text: 'Demonstração: escolha uma queixa fictícia.'
+    critical: false
+    options:
+      - { value: queixa_a, label: Queixa fictícia A }
+      - { value: queixa_b, label: Queixa fictícia B }
+  - id: alarm_a
+    text: 'Demonstração: o indicador fictício de alarme A está presente?'
+    critical: true
+    options:
+      - { value: sim, label: Sim }
+      - { value: nao, label: Não }
+      - { value: desconhecido, label: Não sei }
+  - id: alarm_b
+    text: 'Demonstração: o indicador fictício de alarme B está presente?'
+    critical: true
+    options:
+      - { value: sim, label: Sim }
+      - { value: nao, label: Não }
+      - { value: desconhecido, label: Não sei }
+  - id: discriminator_a
+    text: 'Demonstração A: o contador fictício atingiu 7 unidades?'
+    critical: true
+    when: { questionId: complaint, values: [queixa_a] }
+    options:
+      - { value: sim, label: Sim }
+      - { value: nao, label: Não }
+      - { value: desconhecido, label: Não sei }
+  - id: discriminator_b
+    text: 'Demonstração B: o contador fictício atingiu 9 unidades?'
+    critical: true
+    when: { questionId: complaint, values: [queixa_b] }
+    options:
+      - { value: sim, label: Sim }
+      - { value: nao, label: Não }
+      - { value: desconhecido, label: Não sei }
+decisions:
+  - questionId: sex
+    values: [feminino]
+    specialties: [especialidade_demonstrativa_f]
+    explanation: Sexo informado selecionou uma especialidade apenas fictícia.
+  - questionId: comorbidities
+    values: [marcador_x, marcador_y]
+    urgency: 4
+    explanation: Marcador fictício de comorbidade selecionado.
+  - questionId: complaint
+    values: [queixa_a]
+    specialties: [especialidade_demonstrativa_a]
+    explanation: Ramo da queixa fictícia A selecionado.
+  - questionId: complaint
+    values: [queixa_b]
+    specialties: [especialidade_demonstrativa_b]
+    explanation: Ramo da queixa fictícia B selecionado.
+  - questionId: alarm_a
+    values: [sim]
+    redFlag: alarme_ficticio_a
+    urgency: 1
+    explanation: Alarme fictício A; interromper e exibir orientação de emergência 192.
+  - questionId: alarm_b
+    values: [sim]
+    redFlag: alarme_ficticio_b
+    urgency: 1
+    explanation: Alarme fictício B; interromper e exibir orientação de emergência 192.
+  - questionId: discriminator_a
+    values: [sim]
+    urgency: 3
+    explanation: Contador fictício A atingiu o limiar demonstrativo de 7 unidades.
+  - questionId: discriminator_b
+    values: [sim]
+    urgency: 2
+    explanation: Contador fictício B atingiu o limiar demonstrativo de 9 unidades.
